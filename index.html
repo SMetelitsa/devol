@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hamper App UI</title>
+  <style>
+    /* General Reset */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #4A90E2, #6B6CEB);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .app-container {
+      width: 375px;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      color: #333;
+      text-align: center;
+    }
+
+    /* Top Navigation */
+    .nav-bar {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .icon {
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    /* Progress Circle */
+    .progress-container {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+    }
+
+    .progress-circle {
+      width: 150px;
+      height: 150px;
+      background: conic-gradient(#4A90E2 60%, #f3f3f3 60%);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .circle-content {
+      width: 120px;
+      height: 120px;
+      background: #fff;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #4A90E2;
+    }
+
+    .hamper-text {
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .percentage {
+      font-size: 32px;
+      margin: 0;
+      font-weight: bold;
+    }
+
+    .status-text {
+      font-size: 14px;
+      margin: 0;
+    }
+
+    /* Folding Instructions */
+    .instructions {
+      margin-top: 20px;
+      text-align: left;
+    }
+
+    .instructions h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .task-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .task-list li {
+      font-size: 16px;
+      padding: 10px;
+      background: #fff;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .task-list li span {
+      color: #4A90E2;
+      font-size: 20px;
+    }
+
+    /* Start Cycle Button */
+    .start-cycle {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      margin-top: 20px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #fff;
+      background: #4A90E2;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .start-cycle:hover {
+      background: #357ABD;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <!-- Top Navigation -->
+    <header class="nav-bar">
+      <i class="icon user-icon">??</i>
+      <i class="icon menu-icon">?</i>
+    </header>
+
+    <!-- Progress Circle -->
+    <div class="progress-container">
+      <div class="progress-circle">
+        <div class="circle-content">
+          <p class="hamper-text">Hamper</p>
+          <p class="percentage">60%</p>
+          <p class="status-text">FULL</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Folding Instructions -->
+    <section class="instructions">
+      <h2>Folding Instructions</h2>
+      <ul class="task-list">
+        <li><span>?</span> Drink beer</li>
+        <li><span>?</span> Think about</li>
+        <li><span>?</span> Try new app</li>
+        <li><span>?</span> Make Mirocha happy</li>
+      </ul>
+    </section>
+
+    <!-- Start Cycle Button -->
+    <button class="start-cycle">Start Cycle</button>
+  </div>
+
+  <script>
+    // Script to make the progress circle dynamic
+    document.addEventListener('DOMContentLoaded', () => {
+      const progressCircle = document.querySelector('.progress-circle');
+      const percentageText = document.querySelector('.percentage');
+      
+      // Example: Update progress dynamically (simulate with setTimeout)
+      let progress = 60; // Initial progress
+      percentageText.textContent = `${progress}%`;
+
+      // Function to update progress visually
+      const updateProgress = (newProgress) => {
+        progressCircle.style.background = `conic-gradient(#4A90E2 ${newProgress}%, #f3f3f3 ${newProgress}%)`;
+        percentageText.textContent = `${newProgress}%`;
+      };
+
+      // Simulate progress update
+      setTimeout(() => updateProgress(80), 2000);
+    });
+  </script>
+</body>
+</html>
