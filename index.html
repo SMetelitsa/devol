@@ -1,26 +1,26 @@
-<h1>Мой Web App в Telegram</h1>
-<button id="sendDataBtn">Отправить данные боту</button>
+<h1>My new Web App РІ Telegram</h1>
+<button id="sendDataBtn">Some button</button>
 
 <script>
-// Достаём объект Telegram.WebApp
+// Р”РѕСЃС‚Р°С‘Рј РѕР±СЉРµРєС‚ Telegram.WebApp
 const tg = window.Telegram?.WebApp;
 
 if (tg) {
-  // Для примера — покажем главную кнопку (MainButton)
-  tg.MainButton.setText("Закрыть");
+  // Р”Р»СЏ РїСЂРёРјРµСЂР° вЂ” РїРѕРєР°Р¶РµРј РіР»Р°РІРЅСѓСЋ РєРЅРѕРїРєСѓ (MainButton)
+  tg.MainButton.setText("Р—Р°РєСЂС‹С‚СЊ");
   tg.MainButton.show();
 
-  // Обработчик нажатия на MainButton
+  // РћР±СЂР°Р±РѕС‚С‡РёРє РЅР°Р¶Р°С‚РёСЏ РЅР° MainButton
   tg.MainButton.onClick(() => {
     tg.close();
   });
 }
 
-// Кнопка «Отправить данные»
+// РљРЅРѕРїРєР° В«РћС‚РїСЂР°РІРёС‚СЊ РґР°РЅРЅС‹РµВ»
 document.getElementById("sendDataBtn").addEventListener("click", () => {
   if (tg) {
     tg.sendData("Hello from WebApp!"); 
-    // Эти данные мы потом увидим на стороне бота в CallbackQuery.web_app_data
+    // Р­С‚Рё РґР°РЅРЅС‹Рµ РјС‹ РїРѕС‚РѕРј СѓРІРёРґРёРј РЅР° СЃС‚РѕСЂРѕРЅРµ Р±РѕС‚Р° РІ CallbackQuery.web_app_data
   }
 });
 </script>
